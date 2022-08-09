@@ -2,26 +2,27 @@ const express = require('express')
 
 const router = express.Router()
 
+const {
+    getAllEntries,
+    getEntry,
+    createEntry,
+    updateEntry,
+    deleteEntry
+} = require('../controllers/entryController')
+
 // Get all entries
-router.get('/', (req, res) => {
-    res.json({
-        message: 'Hello World!'
-    })
-})
+router.get('/', getAllEntries)
 
 // Get a single entry
-router.get('/:id', (req, res) => {
-    res.json({})
-})
+router.get('/:id', getEntry)
 
 // Add a new entry
-router.post('/', (req, res) => {
-    res.json({})
-})
+router.post('/', createEntry)
 
 // Update an entry
-router.patch('/:id', (req, res) => {
-    res.json({})
-})
+router.patch('/:id', updateEntry)
+
+// Delete an entry
+router.delete('/:id', deleteEntry)
 
 module.exports = router
